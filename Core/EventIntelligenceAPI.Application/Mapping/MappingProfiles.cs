@@ -33,5 +33,9 @@ public class MappingProfiles:Profile
         CreateMap<Comment, CreateCommentCommand>().ReverseMap();
         CreateMap<Comment,CommentDto>().ReverseMap();
         CreateMap<IPaginate<Comment>,CommentListDto>().ReverseMap();
+        
+        CreateMap<EventUser, CreateEventUserCommand>().ReverseMap();
+        CreateMap<EventUser,EventUserDto>().ReverseMap();
+        CreateMap<IPaginate<EventUser>,EventUserListDto>().ReverseMap();
     }
 }
