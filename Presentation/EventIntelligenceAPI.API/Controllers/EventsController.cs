@@ -26,7 +26,7 @@ public class EventsController : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetEventByID(int id)
+    public async Task<IActionResult> GetEventById(int id)
     {
         GetEventByIdQuery getEventByIdQuery = new GetEventByIdQuery(id);
         var result = await _mediator.Send(getEventByIdQuery);

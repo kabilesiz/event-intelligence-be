@@ -26,7 +26,7 @@ public class RolesController : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetRoleByID(int id)
+    public async Task<IActionResult> GetRoleById(int id)
     {
         GetRoleByIdQuery getRoleQuery = new GetRoleByIdQuery(id);
         var result = await _mediator.Send(getRoleQuery);

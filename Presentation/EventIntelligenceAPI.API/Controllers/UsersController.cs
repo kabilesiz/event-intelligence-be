@@ -26,7 +26,7 @@ public class UsersController : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetUserByID(int id)
+    public async Task<IActionResult> GetUserById(int id)
     {
         GetUserByIdQuery getUserByIdQuery = new GetUserByIdQuery(id);
         var result = await _mediator.Send(getUserByIdQuery);

@@ -29,5 +29,9 @@ public class MappingProfiles:Profile
         CreateMap<User, CreateUserCommand>().ReverseMap();
         CreateMap<User,UserDto>().ReverseMap();
         CreateMap<IPaginate<User>,UserListDto>().ReverseMap();
+        
+        CreateMap<Comment, CreateCommentCommand>().ReverseMap();
+        CreateMap<Comment,CommentDto>().ReverseMap();
+        CreateMap<IPaginate<Comment>,CommentListDto>().ReverseMap();
     }
 }

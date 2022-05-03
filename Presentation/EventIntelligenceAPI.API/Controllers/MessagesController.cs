@@ -26,7 +26,7 @@ public class MessagesController : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetMessageByID(int id)
+    public async Task<IActionResult> GetMessageById(int id)
     {
         GetMessageByIdQuery getMessageByIdQuery = new GetMessageByIdQuery(id);
         var result = await _mediator.Send(getMessageByIdQuery);

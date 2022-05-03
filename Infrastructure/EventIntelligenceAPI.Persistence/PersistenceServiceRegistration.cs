@@ -24,6 +24,7 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IGenericRepository<Message>, GenericRepository<Message,EventIntelligenceApiDbContext>>();
         services.AddScoped<IGenericRepository<Event>, GenericRepository<Event,EventIntelligenceApiDbContext>>();
         services.AddScoped<IGenericRepository<User>, GenericRepository<User,EventIntelligenceApiDbContext>>();
+        services.AddScoped<IGenericRepository<Comment>, GenericRepository<Comment,EventIntelligenceApiDbContext>>();
         return services;
     }
 }
