@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{15DAB0EE-699D-4812-BE33-A45AA7780719}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventIntelligenceAPI.Domain", "Core\EventIntelligenceAPI.Domain\EventIntelligenceAPI.Domain.csproj", "{51DDF338-6F83-4758-9F52-6FE2B51A9BC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventIntelligenceAPI.Application", "Core\EventIntelligenceAPI.Application\EventIntelligenceAPI.Application.csproj", "{BC44605B-B317-47F5-80D3-6D82597AEC93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D74AEE72-1B22-4004-AE06-50E42DBD678F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventIntelligenceAPI.Infrastructure", "Infrastructure\EventIntelligenceAPI.Infrastructure\EventIntelligenceAPI.Infrastructure.csproj", "{FDC75A94-5234-4438-A4E0-37F0DBC0263D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventIntelligenceAPI.Persistence", "Infrastructure\EventIntelligenceAPI.Persistence\EventIntelligenceAPI.Persistence.csproj", "{17D019B3-8B7E-419D-AA3C-B94EF191C28D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F736276D-ECAE-49D2-8D3E-D1D65F453C80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventIntelligenceAPI.API", "Presentation\EventIntelligenceAPI.API\EventIntelligenceAPI.API.csproj", "{A7800C9F-C49C-425D-9A20-127A2FE6EBE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{51DDF338-6F83-4758-9F52-6FE2B51A9BC3} = {15DAB0EE-699D-4812-BE33-A45AA7780719}
+		{BC44605B-B317-47F5-80D3-6D82597AEC93} = {15DAB0EE-699D-4812-BE33-A45AA7780719}
+		{FDC75A94-5234-4438-A4E0-37F0DBC0263D} = {D74AEE72-1B22-4004-AE06-50E42DBD678F}
+		{17D019B3-8B7E-419D-AA3C-B94EF191C28D} = {D74AEE72-1B22-4004-AE06-50E42DBD678F}
+		{A7800C9F-C49C-425D-9A20-127A2FE6EBE6} = {F736276D-ECAE-49D2-8D3E-D1D65F453C80}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51DDF338-6F83-4758-9F52-6FE2B51A9BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51DDF338-6F83-4758-9F52-6FE2B51A9BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51DDF338-6F83-4758-9F52-6FE2B51A9BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51DDF338-6F83-4758-9F52-6FE2B51A9BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC44605B-B317-47F5-80D3-6D82597AEC93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC44605B-B317-47F5-80D3-6D82597AEC93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC44605B-B317-47F5-80D3-6D82597AEC93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC44605B-B317-47F5-80D3-6D82597AEC93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDC75A94-5234-4438-A4E0-37F0DBC0263D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC75A94-5234-4438-A4E0-37F0DBC0263D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC75A94-5234-4438-A4E0-37F0DBC0263D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC75A94-5234-4438-A4E0-37F0DBC0263D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17D019B3-8B7E-419D-AA3C-B94EF191C28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D019B3-8B7E-419D-AA3C-B94EF191C28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D019B3-8B7E-419D-AA3C-B94EF191C28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D019B3-8B7E-419D-AA3C-B94EF191C28D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7800C9F-C49C-425D-9A20-127A2FE6EBE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7800C9F-C49C-425D-9A20-127A2FE6EBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7800C9F-C49C-425D-9A20-127A2FE6EBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7800C9F-C49C-425D-9A20-127A2FE6EBE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
