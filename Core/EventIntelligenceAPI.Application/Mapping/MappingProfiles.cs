@@ -21,5 +21,9 @@ public class MappingProfiles:Profile
         CreateMap<Message, CreateMessageCommand>().ReverseMap();
         CreateMap<Message,MessageDto>().ReverseMap();
         CreateMap<IPaginate<Message>,MessageListDto>().ReverseMap();
+        
+        CreateMap<Event, CreateEventCommand>().ReverseMap();
+        CreateMap<Event,EventDto>().ReverseMap();
+        CreateMap<IPaginate<Event>,EventListDto>().ReverseMap();
     }
 }

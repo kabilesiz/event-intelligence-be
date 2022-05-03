@@ -21,8 +21,22 @@ public static class ApplicationServiceRegistration
         services.AddMediatR(typeof(GetRoleListQuery).GetTypeInfo().Assembly);
         services.AddMediatR(typeof(GetRoleByIdQuery).GetTypeInfo().Assembly);
         services.AddMediatR(typeof(CreateRoleCommand).GetTypeInfo().Assembly);
-        services.AddMediatR(typeof(GetMessageByIdQuery).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(UpdateRoleCommand).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(DeleteRoleCommand).GetTypeInfo().Assembly);
+
         services.AddMediatR(typeof(GetMessageListQuery).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(GetMessageByIdQuery).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(CreateMessageCommand).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(UpdateMessageCommand).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(DeleteMessageCommand).GetTypeInfo().Assembly);
+        
+        services.AddMediatR(typeof(GetEventListQuery).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(GetEventByIdQuery).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(CreateEventCommand).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(UpdateEventCommand).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(DeleteEventCommand).GetTypeInfo().Assembly);
+        
+        
         return services;
     }
 }
