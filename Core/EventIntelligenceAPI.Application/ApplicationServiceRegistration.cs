@@ -21,6 +21,8 @@ public static class ApplicationServiceRegistration
         services.AddMediatR(typeof(GetRoleListQuery).GetTypeInfo().Assembly);
         services.AddMediatR(typeof(GetRoleByIdQuery).GetTypeInfo().Assembly);
         services.AddMediatR(typeof(CreateRoleCommand).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(GetMessageByIdQuery).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(GetMessageListQuery).GetTypeInfo().Assembly);
         return services;
     }
 }

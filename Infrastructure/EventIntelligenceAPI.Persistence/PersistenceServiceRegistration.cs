@@ -21,6 +21,7 @@ public static class PersistenceServiceRegistration
                 .EnableDetailedErrors();
         });
         services.AddScoped<IGenericRepository<Role>, GenericRepository<Role,EventIntelligenceApiDbContext>>();
+        services.AddScoped<IGenericRepository<Message>, GenericRepository<Message,EventIntelligenceApiDbContext>>();
         return services;
     }
 }

@@ -17,5 +17,9 @@ public class MappingProfiles:Profile
         CreateMap<Role, CreateRoleCommand>().ReverseMap();
         CreateMap<Role,RoleDto>().ReverseMap();
         CreateMap<IPaginate<Role>,RoleListDto>().ReverseMap();
+        
+        CreateMap<Message, CreateMessageCommand>().ReverseMap();
+        CreateMap<Message,MessageDto>().ReverseMap();
+        CreateMap<IPaginate<Message>,MessageListDto>().ReverseMap();
     }
 }
