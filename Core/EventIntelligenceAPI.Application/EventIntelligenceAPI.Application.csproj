@@ -10,4 +10,13 @@
       <ProjectReference Include="..\EventIntelligenceAPI.Domain\EventIntelligenceAPI.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Dtos" />
+      <Folder Include="Mapping" />
+    </ItemGroup>
+
 </Project>
