@@ -36,6 +36,11 @@ public static class ApplicationServiceRegistration
         services.AddMediatR(typeof(UpdateEventCommand).GetTypeInfo().Assembly);
         services.AddMediatR(typeof(DeleteEventCommand).GetTypeInfo().Assembly);
         
+        services.AddMediatR(typeof(GetUserListQuery).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(GetUserByIdQuery).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(CreateUserCommand).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(UpdateUserCommand).GetTypeInfo().Assembly);
+        services.AddMediatR(typeof(DeleteUserCommand).GetTypeInfo().Assembly);
         
         return services;
     }
