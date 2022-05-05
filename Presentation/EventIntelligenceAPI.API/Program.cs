@@ -13,6 +13,15 @@ using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(setup =>
+{
+    setup.AddPolicy("All", opt =>
+    {
+        opt.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+
+        //opt.WithOrigins("http://nursin.com", "http://yavuzsamet.com").WithMethods("GET").AllowAnyHeader();
+    });
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -29,6 +38,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("All");
 
 app.UseHttpsRedirection();
 
