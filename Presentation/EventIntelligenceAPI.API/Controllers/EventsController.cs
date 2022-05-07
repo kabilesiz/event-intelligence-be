@@ -2,10 +2,10 @@ using EventIntelligenceAPI.Application.CQRS.Commands;
 using EventIntelligenceAPI.Application.CQRS.Queries;
 using EventIntelligenceAPI.Application.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventIntelligenceAPI.API.Controllers;
-
 [ApiController]
 [Route("api/[controller]")]
 public class EventsController : ControllerBase
@@ -39,8 +39,8 @@ public class EventsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateEvent([FromBody] CreateEventCommand createEventCommand)
     {
-        await _mediator.Send(createEventCommand);
-        return Ok();
+        var toReturn = await _mediator.Send(createEventCommand);
+        return Created("",toReturn);
     }
     
     [HttpPut]

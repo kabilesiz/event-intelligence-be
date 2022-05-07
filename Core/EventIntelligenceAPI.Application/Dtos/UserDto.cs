@@ -11,4 +11,5 @@ public class UserDto
     public string Department { get; set; }
     public string Address { get; set; }
     public int RoleId { get; set; }
+    public string? RoleDefinition { get; set; }
 }
