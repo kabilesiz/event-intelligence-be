@@ -21,6 +21,7 @@ public class TokenGenerator
         claims.Add(new Claim("roleInfo", userDto.RoleDefinition));
         claims.Add(new Claim("name", userDto.Name));
         claims.Add(new Claim("surname", userDto.Surname));
+        claims.Add(new Claim("userId", userDto.Id.ToString()));
 
         JwtSecurityToken token = new JwtSecurityToken(issuer:JwtInfo.Issuer
             ,audience:JwtInfo.Audience,claims :claims, notBefore:DateTime.UtcNow, expires:DateTime.UtcNow.AddDays(15),signingCredentials: credentials);

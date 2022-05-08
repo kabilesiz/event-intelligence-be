@@ -37,15 +37,39 @@ public class MessagesController : ControllerBase
         return NotFound();
     }
     
+    [HttpGet("{id}/received")]
+    public async Task<IActionResult> GetMessagesByReceiverId([FromQuery] PageRequest pageRequest, int id)
+    {
+        GetMessageListByReceiverIdQuery getMessageByReceiverIdQuery = new GetMessageListByReceiverIdQuery(id, pageRequest);
+        var result = await _mediator.Send(getMessageByReceiverIdQuery);
+        if (result != null)
+        {
+            return Ok(result);
+        }
+        return NotFound();
+    }
+    
+    [HttpGet("{id}/sent")]
+    public async Task<IActionResult> GetMessagesBySenderId([FromQuery] PageRequest pageRequest, int id)
+    {
+        GetMessageListBySenderIdQuery getMessageListBySenderIdQuery = new GetMessageListBySenderIdQuery(id, pageRequest);
+        var result = await _mediator.Send(getMessageListBySenderIdQuery);
+        if (result != null)
+        {
+            return Ok(result);
+        }
+        return NotFound();
+    }
+    
     [HttpPost]
-    public async Task<IActionResult> AddRole([FromBody] CreateMessageCommand createMessageCommand)
+    public async Task<IActionResult> UpsertMessage([FromBody] CreateMessageCommand createMessageCommand)
     {
         await _mediator.Send(createMessageCommand);
         return Ok();
     }
     
     [HttpPut]
-    public async Task<IActionResult> UpdateRole([FromBody] UpdateMessageCommand message)
+    public async Task<IActionResult> UpdateMessage([FromBody] UpdateMessageCommand message)
     {
         await _mediator.Send(message);
         return Ok();
