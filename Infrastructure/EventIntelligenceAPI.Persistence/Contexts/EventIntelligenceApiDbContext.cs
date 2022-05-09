@@ -43,6 +43,12 @@ public class EventIntelligenceApiDbContext : DbContext
             .HasForeignKey(x => x.EventId)
             .OnDelete(DeleteBehavior.NoAction);
         
+        modelBuilder.Entity<Event>()
+            .HasMany<EventUser>(x => x.EventUsers)
+            .WithOne(x => x.Event)
+            .HasForeignKey(x => x.EventId)
+            .OnDelete(DeleteBehavior.NoAction);
+        
         modelBuilder.Entity<Message>()
             .HasOne<User>(x => x.ReceiverUser)
             .WithMany(x => x.ReceivedMessages)

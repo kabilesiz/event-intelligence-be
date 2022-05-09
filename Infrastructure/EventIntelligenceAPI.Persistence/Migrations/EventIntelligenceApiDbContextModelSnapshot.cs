@@ -239,7 +239,7 @@ namespace EventIntelligenceAPI.Persistence.Migrations
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.Event", "Event")
                         .WithMany("EventUsers")
                         .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.User", "User")

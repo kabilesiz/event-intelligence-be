@@ -1,5 +1,6 @@
 using EventIntelligenceAPI.Application.CQRS.Commands;
 using EventIntelligenceAPI.Application.CQRS.Queries;
+using EventIntelligenceAPI.Application.Dtos;
 using EventIntelligenceAPI.Application.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -55,6 +56,37 @@ public class EventsController : ControllerBase
     {
         DeleteEventCommand deleteEventByIdCommand = new DeleteEventCommand(id);
         var result = await _mediator.Send(deleteEventByIdCommand);
+        return Ok(result);
+    }
+    
+    [HttpGet("{id}/candidates")]
+    public async Task<IActionResult> GetCandidateUsers(int id)
+    {
+        GetCandidateUsersOfEventQuery getCandidateUsersOfEventQuery = new GetCandidateUsersOfEventQuery(id);
+        var result = await _mediator.Send(getCandidateUsersOfEventQuery);
+        return Ok(result);
+    }
+    
+    [HttpGet("{id}/participants")]
+    public async Task<IActionResult> GetParticipantUsers(int id)
+    {
+        GetAssignedUsersOfEventQuery getAssignedUsersOfEventQuery = new GetAssignedUsersOfEventQuery(id);
+        var result = await _mediator.Send(getAssignedUsersOfEventQuery);
+        return Ok(result);
+    }
+    
+    [HttpGet("{id}/comments")]
+    public async Task<IActionResult> GetComments([FromQuery] PageRequest pageRequest, int id)
+    {
+        GetCommentsByEventIdQuery getCommentsByEventIdQuery = new GetCommentsByEventIdQuery(id, pageRequest);
+        var result = await _mediator.Send(getCommentsByEventIdQuery);
+        return Ok(result);
+    }
+    [HttpPost("assign/users")]
+    public async Task<IActionResult> AssignUsers(List<AssignedUserDto> assignedUserList)
+    {
+        AssignUserToEventCommand assignUsersToEventCommand = new AssignUserToEventCommand(assignedUserList);
+        var result = await _mediator.Send(assignUsersToEventCommand);
         return Ok(result);
     }
 }

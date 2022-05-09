@@ -114,8 +114,7 @@ namespace EventIntelligenceAPI.Persistence.Migrations
                         name: "FK_EventUser_Events_EventId",
                         column: x => x.EventId,
                         principalTable: "Events",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_EventUser_Users_UserId",
                         column: x => x.UserId,
