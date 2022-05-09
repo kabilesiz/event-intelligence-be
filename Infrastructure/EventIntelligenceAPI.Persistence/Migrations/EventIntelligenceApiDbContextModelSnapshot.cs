@@ -220,13 +220,13 @@ namespace EventIntelligenceAPI.Persistence.Migrations
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.Event", "Event")
                         .WithMany("Comments")
                         .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Event");
@@ -239,7 +239,7 @@ namespace EventIntelligenceAPI.Persistence.Migrations
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.Event", "Event")
                         .WithMany("EventUsers")
                         .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.User", "User")

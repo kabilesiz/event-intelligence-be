@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventIntelligenceAPI.Persistence.Migrations
 {
     [DbContext(typeof(EventIntelligenceApiDbContext))]
-    [Migration("20220509191228_mig_first")]
+    [Migration("20220509211802_mig_first")]
     partial class mig_first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -222,13 +222,13 @@ namespace EventIntelligenceAPI.Persistence.Migrations
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.Event", "Event")
                         .WithMany("Comments")
                         .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Event");
@@ -241,7 +241,7 @@ namespace EventIntelligenceAPI.Persistence.Migrations
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.Event", "Event")
                         .WithMany("EventUsers")
                         .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EventIntelligenceAPI.Domain.Entities.User", "User")

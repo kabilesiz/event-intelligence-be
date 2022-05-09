@@ -35,19 +35,19 @@ public class EventIntelligenceApiDbContext : DbContext
             .HasMany<Comment>(x => x.Comments)
             .WithOne(x => x.User)
             .HasForeignKey(x => x.UserId)
-            .OnDelete(DeleteBehavior.NoAction);
+            .OnDelete(DeleteBehavior.Cascade);
         
         modelBuilder.Entity<Event>()
             .HasMany<Comment>(x => x.Comments)
             .WithOne(x => x.Event)
             .HasForeignKey(x => x.EventId)
-            .OnDelete(DeleteBehavior.NoAction);
+            .OnDelete(DeleteBehavior.Cascade);
         
         modelBuilder.Entity<Event>()
             .HasMany<EventUser>(x => x.EventUsers)
             .WithOne(x => x.Event)
             .HasForeignKey(x => x.EventId)
-            .OnDelete(DeleteBehavior.NoAction);
+            .OnDelete(DeleteBehavior.Cascade);
         
         modelBuilder.Entity<Message>()
             .HasOne<User>(x => x.ReceiverUser)
