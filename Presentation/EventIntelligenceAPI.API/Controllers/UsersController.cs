@@ -2,10 +2,11 @@ using EventIntelligenceAPI.Application.CQRS.Commands;
 using EventIntelligenceAPI.Application.CQRS.Queries;
 using EventIntelligenceAPI.Application.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventIntelligenceAPI.API.Controllers;
-
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UsersController : ControllerBase
@@ -44,7 +45,6 @@ public class UsersController : ControllerBase
         return Ok();
     }
 
-
     [HttpPut]
     public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand user)
     {
@@ -52,8 +52,6 @@ public class UsersController : ControllerBase
         return Ok();
     }
     
-    
-
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {

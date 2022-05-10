@@ -19,6 +19,8 @@ public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand>
     public async Task<Unit> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
     {
         var role = _mapper.Map<Role>(request);
+        role.CreatedDate = DateTime.UtcNow;
+        role.UpdatedDate = DateTime.UtcNow;
         await _roleRepository.AddAsync(role);
         return Unit.Value;
     }

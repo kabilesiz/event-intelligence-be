@@ -21,6 +21,7 @@ public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, C
     public async Task<CommentListDto> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
     {
         var comments = await _commentRepository.GetListAsync(
+            orderBy:c => c.OrderByDescending(c => c.Id),
             index:request.PageRequest.Page,
             size:request.PageRequest.PageSize);
         var toReturn = _mapper.Map<CommentListDto>(comments);

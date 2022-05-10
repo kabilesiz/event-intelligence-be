@@ -26,6 +26,7 @@ public class UpdateMessageCommandHandler: IRequestHandler<UpdateMessageCommand>
             message.Title = request.Title;
             message.ReceiverUserId = request.ReceiverUserId;
             message.SenderUserId = request.SenderUserId;
+            message.UpdatedDate = DateTime.UtcNow;
             await _messageRepository.UpdateAsync(message);
             return Unit.Value;
         }

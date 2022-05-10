@@ -20,6 +20,8 @@ public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand>
     public async Task<Unit> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
     {
         var comment = _mapper.Map<Comment>(request);
+        comment.CreatedDate = DateTime.UtcNow;
+        comment.UpdatedDate = DateTime.UtcNow;
         await _commentRepository.AddAsync(comment);
         return Unit.Value;
     }

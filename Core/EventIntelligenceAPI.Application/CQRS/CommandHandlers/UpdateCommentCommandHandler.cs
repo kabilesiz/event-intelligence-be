@@ -25,6 +25,7 @@ public class UpdateCommentCommandHandler : IRequestHandler<UpdateCommentCommand>
             comment.Body = request.Body;
             comment.EventId = request.EventId;
             comment.UserId = request.UserId;
+            comment.UpdatedDate = DateTime.UtcNow;
             await _commentRepository.UpdateAsync(comment);
             return Unit.Value;
         }

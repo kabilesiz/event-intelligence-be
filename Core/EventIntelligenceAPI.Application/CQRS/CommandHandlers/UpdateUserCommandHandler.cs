@@ -30,6 +30,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand>
             user.Age = request.Age;
             user.RoleId = request.RoleId;
             user.Age = request.Age;
+            user.UpdatedDate = DateTime.UtcNow;
             await _userRepository.UpdateAsync(user);
             return Unit.Value;
         }

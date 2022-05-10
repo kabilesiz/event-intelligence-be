@@ -19,6 +19,8 @@ public class CreateMessageCommandHandler : IRequestHandler<CreateMessageCommand>
     public async Task<Unit> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
     {
         var mappedMessage= _mapper.Map<Message>(request);
+        mappedMessage.CreatedDate = DateTime.UtcNow;
+        mappedMessage.UpdatedDate = DateTime.UtcNow;
         await _messageRepository.AddAsync(mappedMessage);
         return Unit.Value;
     }

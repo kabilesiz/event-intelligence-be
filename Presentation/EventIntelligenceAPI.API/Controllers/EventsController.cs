@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventIntelligenceAPI.API.Controllers;
+
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class EventsController : ControllerBase
@@ -82,6 +84,7 @@ public class EventsController : ControllerBase
         var result = await _mediator.Send(getCommentsByEventIdQuery);
         return Ok(result);
     }
+    
     [HttpPost("assign/users")]
     public async Task<IActionResult> AssignUsers(List<AssignedUserDto> assignedUserList)
     {

@@ -20,6 +20,8 @@ public class CreateEventUserCommandHandler : IRequestHandler<CreateEventUserComm
     public async Task<Unit> Handle(CreateEventUserCommand request, CancellationToken cancellationToken)
     {
         var eventUser = _mapper.Map<EventUser>(request);
+        eventUser.CreatedDate = DateTime.UtcNow;
+        eventUser.UpdatedDate = DateTime.UtcNow;
         await _eventUserRepository.AddAsync(eventUser);
         return Unit.Value;
     }

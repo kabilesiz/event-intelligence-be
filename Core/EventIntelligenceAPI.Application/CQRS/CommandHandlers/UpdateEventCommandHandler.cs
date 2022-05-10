@@ -26,6 +26,7 @@ public class UpdateEventCommandHandler : IRequestHandler<UpdateEventCommand>
             eEvent.Title = request.Title;
             eEvent.EndDate = request.EndDate;
             eEvent.StartDate = request.StartDate;
+            eEvent.UpdatedDate = DateTime.UtcNow;
             await _eventRepository.UpdateAsync(eEvent);
             return Unit.Value;
         }

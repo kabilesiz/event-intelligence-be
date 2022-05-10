@@ -21,6 +21,7 @@ public class GetUserListQueryHandler : IRequestHandler<GetUserListQuery, UserLis
     public async Task<UserListDto> Handle(GetUserListQuery request, CancellationToken cancellationToken)
     {
         var users = await _userRepository.GetListAsync(
+            orderBy:u => u.OrderByDescending(u => u.Id),
             index:request.PageRequest.Page,
             size:request.PageRequest.PageSize);
         var toReturn = _mapper.Map<UserListDto>(users);

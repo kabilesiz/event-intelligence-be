@@ -20,6 +20,7 @@ public class GetMessageListQueryHandler : IRequestHandler<GetMessageListQuery, M
     public async Task<MessageListDto> Handle(GetMessageListQuery request, CancellationToken cancellationToken)
     {
         var messages = await _messageRepository.GetListAsync(
+            orderBy:m => m.OrderByDescending(m => m.Id),
             index:request.PageRequest.Page,
             size:request.PageRequest.PageSize);
         var toReturn = _mapper.Map<MessageListDto>(messages);

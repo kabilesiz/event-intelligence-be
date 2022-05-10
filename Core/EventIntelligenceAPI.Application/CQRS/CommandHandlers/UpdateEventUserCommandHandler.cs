@@ -23,6 +23,7 @@ public class UpdateEventUserCommandHandler : IRequestHandler<UpdateEventUserComm
         {
             eventUser.EventId = request.EventId;
             eventUser.UserId = request.UserId;
+            eventUser.UpdatedDate = DateTime.UtcNow;
             await _eventUserRepository.UpdateAsync(eventUser);
             return Unit.Value;
         }

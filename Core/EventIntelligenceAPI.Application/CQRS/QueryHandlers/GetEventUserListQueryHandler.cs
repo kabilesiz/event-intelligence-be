@@ -20,6 +20,7 @@ public class GetEventUserListQueryHandler : IRequestHandler<GetEventUserListQuer
     public async Task<EventUserListDto> Handle(GetEventUserListQuery request, CancellationToken cancellationToken)
     {
         var eventUsers = await _eventUserRepository.GetListAsync(
+            orderBy:eu => eu.OrderByDescending(eu => eu.Id),
             index:request.PageRequest.Page,
             size:request.PageRequest.PageSize);
         var toReturn = _mapper.Map<EventUserListDto>(eventUsers);

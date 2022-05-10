@@ -19,6 +19,8 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand>
     public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
         var mappedUser = _mapper.Map<User>(request);
+        mappedUser.CreatedDate = DateTime.UtcNow;
+        mappedUser.UpdatedDate = DateTime.UtcNow;
         await _userRepository.AddAsync(mappedUser);
         return Unit.Value;
     }

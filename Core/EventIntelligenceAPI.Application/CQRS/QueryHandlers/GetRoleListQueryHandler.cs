@@ -20,6 +20,7 @@ public class GetRoleListQueryHandler : IRequestHandler<GetRoleListQuery, RoleLis
     public async Task<RoleListDto> Handle(GetRoleListQuery request, CancellationToken cancellationToken)
     {
         var roles = await _roleRepository.GetListAsync(
+            orderBy:r => r.OrderByDescending(r => r.Id),
             index:request.PageRequest.Page,
             size:request.PageRequest.PageSize);
         var toReturn = _mapper.Map<RoleListDto>(roles);

@@ -20,6 +20,8 @@ public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand, Eve
     public async Task<EventDto> Handle(CreateEventCommand request, CancellationToken cancellationToken)
     {
         var eEvent = _mapper.Map<Event>(request);
+        eEvent.CreatedDate = DateTime.UtcNow;
+        eEvent.UpdatedDate = DateTime.UtcNow;
         var addedEvent = await _eventRepository.AddAsync(eEvent);
         var toReturn = _mapper.Map<EventDto>(addedEvent);
         return toReturn;

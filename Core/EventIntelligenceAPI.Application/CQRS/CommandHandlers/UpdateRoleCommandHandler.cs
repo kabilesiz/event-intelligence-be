@@ -23,6 +23,7 @@ public class UpdateRoleCommandHandler : IRequestHandler<UpdateRoleCommand>
         if (role != null)
         {
             role.Definition = request.Definition;
+            role.UpdatedDate = DateTime.UtcNow;
             await _roleRepository.UpdateAsync(role);
             return Unit.Value;
         }
